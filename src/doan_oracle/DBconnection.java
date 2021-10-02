@@ -18,24 +18,14 @@ import javax.swing.JOptionPane;
  */
 public class DBconnection {
     public static Connection getConnection(String strUser,String strPassword){
-        Connection connection = null;
-//        try {
-//            String url = "jdbc:oracle:thin:@192.168.1.32:1521:orcl1";
-////           String strUser = "hr";
-////            String strPassword = "hr";
-//         connection = DriverManager.getConnection(url, strUser, strPassword);
-//                   
-//     } catch (Exception ex) {
-//         ex.printStackTrace();   
-//     }
-//       
+        Connection connection = null;     
         try {
             String driver = "oracle.jdbc.driver.OracleDriver";
             String url = "jdbc:oracle:thin:@192.168.1.32:1521:orcl1";
            // String user = "sys as sysdba";
          //   String passwd = "sys";
             Class.forName(driver);
-            connection = DriverManager.getConnection(url,strUser,strPassword);
+            connection = DriverManager.getConnection(url, strUser, strPassword);
         } catch (Exception e) {
         }
         return connection;
@@ -69,5 +59,7 @@ public class DBconnection {
     
     public static void main(String[] args) {
         System.out.println(getConnection("VanHien", "VanHien"));
+           //     System.out.println(getConnection());
+
     }
 }

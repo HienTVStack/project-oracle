@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -22,8 +23,8 @@ public class dialog_infoSession extends javax.swing.JDialog {
     ResultSet resultset = null;
     Connection connection = null;
     
-    String arr[] = {"sid", "serial#", "user#", "username", "machine"};
-    DefaultTableModel model = new DefaultTableModel(arr, 0);
+//    String arr[] = {"sid", "serial#", "user#", "username", "machine"};
+//    DefaultTableModel model = new DefaultTableModel(arr, 0);
     /**
      * Creates new form dialog_infoSession
      */
@@ -34,6 +35,8 @@ public class dialog_infoSession extends javax.swing.JDialog {
         countSession();
     }
     public void showData() {
+        String arr[] = {"sid", "serial#", "user#", "username", "machine"};
+         DefaultTableModel model = new DefaultTableModel(arr, 0);
         try {
             connection = DBconnection.getConnection();
             String query = "SELECT sid, serial#,user#, username, machine FROM V$SESSION WHERE TYPE != 'BACKGOUND' ";
@@ -199,8 +202,18 @@ public class dialog_infoSession extends javax.swing.JDialog {
     private void btnKillSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKillSessionActionPerformed
         // TODO add your handling code here:
         try {
+            int i = tblSession.getSelectedRow();
             
+            TableModel model = tblSession.getModel();
+            connection = DBconnection.getConnection();
+            String query = "alter system kill session '"+model.getValueAt(i, 0).toString()+", "+model.getValueAt(i, 1).toString()+"'";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Kill thành công");
+            showData();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Có lỗi khi kill session");
         }
     }//GEN-LAST:event_btnKillSessionActionPerformed
 

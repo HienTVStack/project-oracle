@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import GUI.frm_MayTinhTien;
 
 /**
  *
@@ -24,10 +25,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
      */
     public frm_DangNhap() {
         initComponents();
-        try {
-            
-        } catch (Exception e) {
-        }
+        
     }
     String userName;
     String password;
@@ -43,7 +41,13 @@ public class frm_DangNhap extends javax.swing.JFrame {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    public static String tenDangNhap() {
+        return "VanHien";
+    }
+    public static String matKhauDangNhap() {
+        return "VanHien";
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +67,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
         btnThoat = new javax.swing.JButton();
         btnDangNhap = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        btnDangNhap1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +100,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
 
         btnDangNhap.setBackground(new java.awt.Color(153, 255, 51));
         btnDangNhap.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnDangNhap.setText("Đăngnhập");
+        btnDangNhap.setText("Đăngnhập TN");
         btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangNhapActionPerformed(evt);
@@ -104,12 +109,21 @@ public class frm_DangNhap extends javax.swing.JFrame {
 
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        btnDangNhap1.setBackground(new java.awt.Color(153, 255, 51));
+        btnDangNhap1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnDangNhap1.setText("Đăngnhập QTV");
+        btnDangNhap1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangNhap1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,10 +134,15 @@ public class frm_DangNhap extends javax.swing.JFrame {
                             .addComponent(txtUserName)
                             .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
+                        .addGap(13, 13, 13)
+                        .addComponent(btnDangNhap1)
+                        .addGap(48, 48, 48)
                         .addComponent(btnDangNhap)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,29 +155,35 @@ public class frm_DangNhap extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThoat)
-                    .addComponent(btnDangNhap))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnDangNhap)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDangNhap1)
+                        .addGap(26, 26, 26)))
+                .addComponent(btnThoat)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(161, 161, 161))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(115, 115, 115))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(41, 41, 41)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -192,29 +217,19 @@ public class frm_DangNhap extends javax.swing.JFrame {
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         // TODO add your handling code here:
         if(txtUserName.getText().equals("")) {
-            try {
-                connection = DBconnection.getConnection();
-                frm_main frm = new frm_main();
-                frm.show();
-            } catch (Exception e) {
-                JOptionPane.showConfirmDialog(this, "Đăng nhập thất bại");
-            }           
+            JOptionPane.showMessageDialog(this, "Nhập tên đăng nhập");
         }
         else {        
             try {
                 connection = DBconnection.getConnection(txtUserName.getText(), txtPassword.getText());
                 if(connection != null) {
-                    frm_main frm = new frm_main();
-                    frm.show();
+                    frm_MayTinhTien frm = new frm_MayTinhTien();
+                    frm.setVisible(true);
+                    setVisible(false);
                 }
-                else {
-                    JOptionPane.showMessageDialog(this, "Sai tài khoản mật khẩu rồi");
-                                   //     JOptionPane.showConfirmDialog(this, connection.toString());
-
-                }
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thất bại");
-               // e.printStackTrace();
             }
         }
     }//GEN-LAST:event_btnDangNhapActionPerformed
@@ -223,6 +238,20 @@ public class frm_DangNhap extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnDangNhap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhap1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            connection = DBconnection.getConnection(txtUserName.getText(), txtPassword.getText());                
+            if(connection != null) {
+                frm_main frm = new frm_main();
+                frm.setVisible(true);
+                setVisible(false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  
+    }//GEN-LAST:event_btnDangNhap1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -261,6 +290,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDangNhap;
+    private javax.swing.JButton btnDangNhap1;
     private javax.swing.JButton btnThoat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
