@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -115,8 +116,7 @@ public class dialog_policys extends javax.swing.JDialog {
                 }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Có lỗi khi select các policy 4");
-        }
-        
+        }        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,8 +136,12 @@ public class dialog_policys extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        cboTypes = new javax.swing.JComboBox<>();
+        txtPolicyName = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        cboObjName = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lbSumPolicy = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -187,10 +191,29 @@ public class dialog_policys extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("statement_types");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboTypes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cboTypes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "INSERT", "SELECT", "UPDATE", "DELETE" }));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtPolicyName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        cboObjName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cboObjName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tbl_DonHang", "tbl_SanPham", "tbl_GiamGia", "tbl_ChiTietHoaDon", "tbl_TaiKhoan", " " }));
+
+        jButton1.setText("TẠO POLICY");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("XÓA POLICY");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -198,34 +221,51 @@ public class dialog_policys extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel8)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cboTypes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPolicyName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboObjName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboObjName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPolicyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cboTypes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -246,6 +286,11 @@ public class dialog_policys extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblDSPolicy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDSPolicyMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDSPolicy);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -341,6 +386,53 @@ public class dialog_policys extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            connection = DBconnection.getConnection();
+            String query = "begin dbms_fga.add_policy (object_schema => 'VanHien', object_name => '"+cboObjName.getSelectedItem().toString()+"', policy_name => '"+txtPolicyName.getText()+"', statement_types => '"+cboTypes.getSelectedItem().toString()+"'); end;";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Tạo mới policy thành công");
+            showData();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(this, "Có lỗi khi tạo policy");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:     
+        try {
+            connection = DBconnection.getConnection();
+            String query = "begin dbms_fga.drop_policy (object_schema => 'VanHien', object_name => '"+cboObjName.getSelectedItem().toString()+"', policy_name => '"+txtPolicyName.getText()+"'); end;";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Xóa policy thành công");
+            showData();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(this, "Có lỗi khi tạo policy");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tblDSPolicyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDSPolicyMouseClicked
+        // TODO add your handling code here:
+        try {
+            int i = tblDSPolicy.getSelectedRow();
+            
+            TableModel model = tblDSPolicy.getModel();
+            
+            //lbl_UserID.setText(model.getValueAt(i, 0).toString());
+            txtPolicyName.setText(model.getValueAt(i, 3).toString());
+ 
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_tblDSPolicyMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -384,7 +476,10 @@ public class dialog_policys extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cboObjName;
+    private javax.swing.JComboBox<String> cboTypes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -399,9 +494,10 @@ public class dialog_policys extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbSumPolicy;
     private javax.swing.JTable tblDSPolicy;
     private javax.swing.JTable tblGiaoTac;
+    private javax.swing.JTextField txtPolicyName;
     // End of variables declaration//GEN-END:variables
 }
