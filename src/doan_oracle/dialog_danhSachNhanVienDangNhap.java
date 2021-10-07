@@ -33,6 +33,7 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
         setResizable(false);
         initComponents();
         showData();
+        tblList.setRowHeight(50);
     }
     public void showData() {
         String arr[] = {"USER_ID", "USERNAME", "ACCOUNT_STATUS", "EXPIRY_DATE", "DEFAULT_TABLESPACE", "CREATED", "LAST_LOGIN"};
@@ -112,11 +113,14 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
         btnCapNhatQuyen = new javax.swing.JButton();
         btnThuHoiQuyen = new javax.swing.JButton();
         btnXemQuyenHienTai = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         cboStatus = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblList = new javax.swing.JTable();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -305,6 +309,13 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
             }
         });
 
+        btnExit.setText("Thoát");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -327,7 +338,11 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
                         .addComponent(btnCapNhatQuyen)
                         .addGap(43, 43, 43)
                         .addComponent(btnThuHoiQuyen)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,13 +359,15 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCapNhatQuyen)
                     .addComponent(btnThuHoiQuyen))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Trạng thái: ");
 
-        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OPEN", "ALL" }));
+        cboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OPEN", "ALL", "LOCK" }));
         cboStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboStatusActionPerformed(evt);
@@ -386,6 +403,13 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
             .addComponent(jScrollPane1)
         );
 
+        btnSearch.setText("Tìm kiếm");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -400,7 +424,11 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(cboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearch))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -422,22 +450,15 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(cboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSearch))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -611,6 +632,41 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnCapNhatQuyenActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+            // TODO add your handling code here:
+            int reply = JOptionPane.showConfirmDialog(null, "Có muốn thoát thật không", "Exit", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION){
+            System.exit(0);
+            }
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        try {
+            String arr[] = {"USER_ID", "USERNAME", "ACCOUNT_STATUS", "EXPIRY_DATE", "DEFAULT_TABLESPACE", "CREATED", "LAST_LOGIN"};
+            DefaultTableModel model = new DefaultTableModel(arr, 0);
+            connection = DBconnection.getConnection();
+            String query = "SELECT * FROM DBA_USERS WHERE USERNAME LIKE '%"+txtSearch.getText().trim().toUpperCase()+"%'";
+            preparedStatement= connection.prepareStatement(query);
+            resultset = preparedStatement.executeQuery();
+            while (resultset.next()) {                
+                Vector vector = new Vector();
+                vector.add(resultset.getString("USER_ID"));
+                vector.add(resultset.getString("USERNAME"));
+                vector.add(resultset.getString("ACCOUNT_STATUS"));
+                vector.add(resultset.getString("EXPIRY_DATE"));
+                vector.add(resultset.getString("DEFAULT_TABLESPACE"));
+                vector.add(resultset.getString("CREATED"));
+                vector.add(resultset.getString("LAST_LOGIN"));
+
+                model.addRow(vector);              
+            }
+            tblList.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Gặp lỗi khi tìm kiếm tên user");
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -655,8 +711,10 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhatQuyen;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnKhoaTaiKhoan;
     private javax.swing.JButton btnKhoaTaiKhoan1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnThuHoiQuyen;
     private javax.swing.JButton btnXemQuyenHienTai;
     private javax.swing.JComboBox<String> cboRole;
@@ -683,6 +741,7 @@ public class dialog_danhSachNhanVienDangNhap extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_UserID1;
     private javax.swing.JTable tblList;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

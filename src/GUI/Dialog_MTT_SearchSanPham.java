@@ -27,6 +27,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import doan_oracle.DBconnection;
 import doan_oracle.frm_DangNhap;
+import GUI.ImageHelper;
+
 
 /**
  *
@@ -226,7 +228,7 @@ public class Dialog_MTT_SearchSanPham extends javax.swing.JDialog {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(23, 23, 23)
                                         .addComponent(btnThemSPVaoHoaDon)))
-                                .addGap(0, 29, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -335,7 +337,7 @@ public class Dialog_MTT_SearchSanPham extends javax.swing.JDialog {
         try {
             // TODO add your handling code here:
             connection = DBconnection.getConnection(frm_DangNhap.tenDangNhap(), frm_DangNhap.matKhauDangNhap());
-            String query = "SELECT * FROM tbl_SanPham WHERE sTenSanPham LIKE '%' + N'"+txtTenSP.getText()+"' + '%'";
+            String query = "SELECT * FROM tbl_SanPham WHERE sTenSanPham LIKE '%"+txtTenSP.getText()+"%'";
             preparedStatement = connection.prepareStatement(query);
             resultset = preparedStatement.executeQuery();
             tbLDanhSachTimKiem.removeAll();
@@ -365,8 +367,11 @@ public class Dialog_MTT_SearchSanPham extends javax.swing.JDialog {
         try {
             // TODO add your handling code here:
             int i = tbLDanhSachTimKiem.getSelectedRow();
-            
+          
             TableModel model = tbLDanhSachTimKiem.getModel();
+                
+            
+            
             
             txtMoTa.setText(model.getValueAt(i, 0).toString());
             String query = "SELECT * FROM tbl_SanPham WHERE PK_iSanPhamID = '"+txtMoTa.getText()+"'";
@@ -383,11 +388,17 @@ public class Dialog_MTT_SearchSanPham extends javax.swing.JDialog {
                     soLuong = txtSoLuong.getText();
                     donGia = resultset.getString("fGiaBan");
                     giamGia = "1";
-                    byte[] in = resultset.getBytes("sImage");
-                    image.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(in)));
+                   // byte[] in = resultset.getBytes("sImage");
+                    //image.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(in)));
+                    //Image img = ImageHelper.createImageFromByteArray(resultset.getString("sImage"), "jpg");
+                    //image.setIcon(new ImageIcon(img));
+                    
             }
-        } catch (SQLException ex) {
-            //Logger.getLogger(Dialog_MTT_SearchSanPham.class.getName()).log(Level.SEVERE, null, ex);
+            
+            
+            
+            
+        } catch (SQLException ex) {           
             JOptionPane.showMessageDialog(this, "Chưa chọn sản phẩm nào");
         }
     }//GEN-LAST:event_tbLDanhSachTimKiemMouseClicked

@@ -5,12 +5,12 @@
         <group>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/DiaLogTaoKhachHang.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/frm_DangNhap.java</file>
-            <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/NewClass.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/frm_DoiMatKhau.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/DoAn_Oracle.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/dialog_danhSachNhanVienDangNhap.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/DBconnection.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/pnl_qlSanPham.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/dialog_policys.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/Thearding/clockTheard.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/frm_MayTinhTien.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/frm_main.java</file>
@@ -22,6 +22,7 @@
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/pnl_qlNhanVien.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/doan_oracle/dialog_infoInstance.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/DialogHuyHD.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/DoAn_Oracle/src/GUI/ImageHelper.java</file>
         </group>
     </open-files>
 </project-private>

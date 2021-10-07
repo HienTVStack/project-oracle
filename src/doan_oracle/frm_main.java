@@ -72,6 +72,7 @@ public class frm_main extends javax.swing.JFrame {
         btnQuanLiNhanVien1 = new javax.swing.JButton();
         btnQuanLiNhanVien2 = new javax.swing.JButton();
         btnThemMoiNhanVien = new javax.swing.JButton();
+        btnPolicy = new javax.swing.JButton();
         pnl_function_2 = new javax.swing.JPanel();
         pnl_bottom = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -168,6 +169,14 @@ public class frm_main extends javax.swing.JFrame {
             }
         });
 
+        btnPolicy.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnPolicy.setText("policy");
+        btnPolicy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPolicyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnl_function_1Layout = new javax.swing.GroupLayout(pnl_function_1);
         pnl_function_1.setLayout(pnl_function_1Layout);
         pnl_function_1Layout.setHorizontalGroup(
@@ -175,16 +184,18 @@ public class frm_main extends javax.swing.JFrame {
             .addGroup(pnl_function_1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_function_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_function_1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnQuanLiNhanVien2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl_function_1Layout.createSequentialGroup()
                         .addGroup(pnl_function_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnl_function_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnThemMoiNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnQuanLiNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnQuanLiNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_function_1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pnl_function_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnQuanLiNhanVien2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPolicy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         pnl_function_1Layout.setVerticalGroup(
@@ -198,6 +209,8 @@ public class frm_main extends javax.swing.JFrame {
                 .addComponent(btnQuanLiNhanVien2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnQuanLiNhanVien1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPolicy, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -418,6 +431,12 @@ public class frm_main extends javax.swing.JFrame {
         dia.setVisible(true);
     }//GEN-LAST:event_btnThemMoiNhanVienActionPerformed
 
+    private void btnPolicyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPolicyActionPerformed
+        // TODO add your handling code here:
+        dialog_policys dia = new dialog_policys(this, true);
+        dia.setVisible(true);
+    }//GEN-LAST:event_btnPolicyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -454,6 +473,7 @@ public class frm_main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPolicy;
     private javax.swing.JButton btnQuanLiNhanVien;
     private javax.swing.JButton btnQuanLiNhanVien1;
     private javax.swing.JButton btnQuanLiNhanVien2;

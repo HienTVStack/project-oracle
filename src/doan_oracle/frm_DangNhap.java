@@ -226,8 +226,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
                     frm_MayTinhTien frm = new frm_MayTinhTien();
                     frm.setVisible(true);
                     setVisible(false);
-                }
-                
+                }               
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thất bại");
             }

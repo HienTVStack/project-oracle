@@ -181,6 +181,7 @@ public class dialog_createUser extends javax.swing.JDialog {
             preparedStatement = connection.prepareStatement(capNhatQuyen);
             preparedStatement.executeUpdate();
             
+            //String queryInsert = "INSERT INTO tbl_TaiKhoan "
             JOptionPane.showMessageDialog(this, "Tạo thành công với mật khẩu 123");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Có lỗi khi tạo tài khoản");

@@ -28,6 +28,7 @@ import javax.swing.table.TableModel;
 //import javafx.scene.text.Font;
 import doan_oracle.frm_DangNhap;
 import doan_oracle.DBconnection;
+import java.awt.Image;
 
 /**
  *
@@ -65,7 +66,7 @@ public class frm_MayTinhTien extends javax.swing.JFrame {
    
    private void setJFram(){
         setLocationRelativeTo(null);
-        setTitle("Máy tính ti�?n");
+        setTitle("Máy tính tiền");
         setResizable(false);
         this.txtSoLuong.setText("1");
 //        try {
@@ -104,6 +105,7 @@ public class frm_MayTinhTien extends javax.swing.JFrame {
             while(resultset.next()){
                 cbPTTT.addItem(resultset.getString("sTenHinhThucThanhToan"));
             }
+            
         } catch (SQLException ex) {
             Logger.getLogger(frm_MayTinhTien.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1013,7 +1015,7 @@ public class frm_MayTinhTien extends javax.swing.JFrame {
         else {           
             double tienThua = Double.parseDouble(txtTienKhachDua.getText()) - Double.parseDouble(lbKhachPhaiTra.getText());
             lbTienThua.setText(String.valueOf(tienThua));
-            JOptionPane.showMessageDialog(this, "Ti�?n thối lại: " + lbTienThua.getText());
+            JOptionPane.showMessageDialog(this, "Tiền thối lại: " + lbTienThua.getText());
             
             String PK_iTaiKhoanID = "";
             try {
