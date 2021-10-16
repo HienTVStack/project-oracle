@@ -209,7 +209,7 @@ public class dialog_infoSession extends javax.swing.JDialog {
             String query = "alter system kill session '"+model.getValueAt(i, 0).toString()+", "+model.getValueAt(i, 1).toString()+"'";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeUpdate();
-            
+  //sys as sysdba          
             JOptionPane.showMessageDialog(this, "Kill thành công");
             showData();
         } catch (Exception e) {

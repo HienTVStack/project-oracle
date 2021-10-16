@@ -23,10 +23,11 @@ public class DBconnection {
             String driver = "oracle.jdbc.driver.OracleDriver";
             String url = "jdbc:oracle:thin:@192.168.1.32:1521:orcl1";
            // String user = "sys as sysdba";
-         //   String passwd = "sys";
+          //   String passwd = "sys";
             Class.forName(driver);
             connection = DriverManager.getConnection(url, strUser, strPassword);
         } catch (Exception e) {
+            //JOptionPane.showMessageDialog(this, "Co loi");
         }
         return connection;
         

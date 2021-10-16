@@ -41,12 +41,7 @@ public class frm_DangNhap extends javax.swing.JFrame {
     public void setPassword(String password) {
         this.password = password;
     }
-    public static String tenDangNhap() {
-        return "VanHien";
-    }
-    public static String matKhauDangNhap() {
-        return "VanHien";
-    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -252,6 +247,33 @@ public class frm_DangNhap extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnDangNhap1ActionPerformed
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static String tenDangNhap() {
+        return "VanHien";
+    }
+    public static String matKhauDangNhap() {
+        return "VanHien";
+    }
     /**
      * @param args the command line arguments
      */
